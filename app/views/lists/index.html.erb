@@ -1,0 +1,14 @@
+<h1>My Movie Lists</h1>
+
+<% if @lists.any? %>
+  <ul>
+    <% @lists.each do |list| %>
+      <li>
+        <%= link_to list.name, list_path(list) %>
+        <%= link_to 'Delete', list_path(list), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have no movie lists yet. <%= link_to 'Create one now!', new_list_path %></p>
+<% end %>

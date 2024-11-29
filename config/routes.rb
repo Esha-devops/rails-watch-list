@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-
+   root to: 'lists#index'
+   resources :lists, only: [:index, :new, :create, :show, :destroy] do
+    resources :bookmarks, only: [:create, :destroy] # Nesting Bookmarks under Lists
+  end
 end

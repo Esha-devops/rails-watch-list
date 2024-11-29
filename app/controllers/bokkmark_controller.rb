@@ -1,2 +1,0 @@
-class BokkmarkController < ApplicationController
-end
